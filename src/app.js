@@ -5,7 +5,7 @@ App = {
         await App.loadAccount()
         await App.loadContract()
         await App.render()
-        await App.renderTasks()
+
         console.log("app loading...")
     },
 
@@ -37,6 +37,8 @@ App = {
       $('#account').html(App.account)
       $('#account2').html(App.account)
 
+      await App.renderTasks()
+      
       //Update loading state
       App.setLoading(false)
     },
