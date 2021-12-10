@@ -35,10 +35,9 @@ App = {
       App.setLoading(true)  
       //Render Account
       $('#account').html(App.account)
-      $('#account2').html(App.account)
 
       await App.renderTasks()
-      
+
       //Update loading state
       App.setLoading(false)
     },
@@ -74,6 +73,13 @@ App = {
       //Show the task section
       $newTaskTemplate.show()
       }      
+    },
+
+    createTask: async () => {
+      App.setLoading(true)
+      const content = $('#newTask').val()
+      await App.todoList.createTask(content, {from: App.account});
+      window.location.reload()
     },
 
     setLoading: (boolean) => {
